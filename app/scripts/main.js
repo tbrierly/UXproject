@@ -43,15 +43,25 @@ $(document).ready(function() {
     },
 	//Select a country
 	onRegionSelect: function(element, code, region){
-		                                     // Prevent loading
-    var country = 'ctu.html#'+code;                               // Title is in href
-
-    country = country.replace('#', ' #');                 // Add space after#
-    $('#CTbody').load(country);                           // To load info
-
-    //$('#CTbody a.current').removeClass('current');        // Update selected
-    $(this).addClass('current');
+		$('#emblem').fadeIn();                                    
+		var country = 'ctuInfo.html#'+code; 
+		var emblem = 'ctu.html#'+code+'Emblem'; 
+		country = country.replace('#', ' #'); 
+		emblem = emblem.replace('#', ' #');
+		$('#CTcontent').load(country);    
+		$('#emblem').load(emblem); 
+		//$('#CTbody a.current').removeClass('current');       
+		//$(this).addClass('current');
+		setTimeout(function(){ 
+		console.log('success');
+		$('#emblem').fadeOut();
+	
+		}, 4000);
+	
+		
 	}
+	
+	
 	
 	});
 	//End of Map Creation
@@ -94,7 +104,7 @@ $(document).ready(function() {
 		var fragment = this.href;                               // Title is in href
 
 		fragment = fragment.replace('#', ' #');                 // Add space after#
-		$('#CTbody').load(fragment);                           // To load info
+		$('#CTcontent').load(fragment);                           // To load info
 
 		//$('#CTbody a.current').removeClass('current');        // Update selected
 		$(this).addClass('current');
@@ -103,7 +113,7 @@ $(document).ready(function() {
 	//Tab click
 	$('#CTcontent').on('click', '#CTnav li a', function(e) { // Click on session
 		e.preventDefault();                                     // Prevent loading
-		var fragment = code+'-'+this.id.lowercase();                               // Title is in href
+		var fragment = this.href;                               // Title is in href
 
 		fragment = fragment.replace('#', ' #');                 // Add space after#
 		$('#CTbody').load(fragment);                           // To load info
@@ -112,7 +122,12 @@ $(document).ready(function() {
 		$(this).addClass('current');
 	});
 
-  
+
+
+
+	
+
+	
 
 });
 
