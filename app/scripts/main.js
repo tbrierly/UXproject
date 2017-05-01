@@ -31,7 +31,7 @@ $(document).ready(function() {
 	//Events
 	onRegionClick: function(element, code, region){
 		if ($(event.currentTarget).data('mapObject').isMoving) {
-			e.preventDefault();
+			//preventDefault();
 		}else{
 			var message = 'You clicked "'
             + region
@@ -44,12 +44,12 @@ $(document).ready(function() {
 	//Select a country
 	onRegionSelect: function(element, code, region){
 		                                     // Prevent loading
-    var country = "ctu.html#"+code;                               // Title is in href
+    var country = 'ctu.html#'+code;                               // Title is in href
 
     country = country.replace('#', ' #');                 // Add space after#
-    $('#CTcontent').load(country);                           // To load info
+    $('#CTbody').load(country);                           // To load info
 
-    $('#CTcontent a.current').removeClass('current');        // Update selected
+    //$('#CTbody a.current').removeClass('current');        // Update selected
     $(this).addClass('current');
 	}
 	
@@ -90,15 +90,27 @@ $(document).ready(function() {
 	
 	//Click events
 	$('#content').on('click', '#listBox li a', function(e) { // Click on session
-    e.preventDefault();                                     // Prevent loading
-    var fragment = this.href;                               // Title is in href
+		e.preventDefault();                                     // Prevent loading
+		var fragment = this.href;                               // Title is in href
 
-    fragment = fragment.replace('#', ' #');                 // Add space after#
-    $('#CTcontent').load(fragment);                           // To load info
+		fragment = fragment.replace('#', ' #');                 // Add space after#
+		$('#CTbody').load(fragment);                           // To load info
 
-    $('#CTcontent a.current').removeClass('current');        // Update selected
-    $(this).addClass('current');
-  });
+		//$('#CTbody a.current').removeClass('current');        // Update selected
+		$(this).addClass('current');
+	});
+	
+	//Tab click
+	$('#CTcontent').on('click', '#CTnav li a', function(e) { // Click on session
+		e.preventDefault();                                     // Prevent loading
+		var fragment = code+'-'+this.id.lowercase();                               // Title is in href
+
+		fragment = fragment.replace('#', ' #');                 // Add space after#
+		$('#CTbody').load(fragment);                           // To load info
+
+		//$('#CTbody a.current').removeClass('current');        // Update selected
+		$(this).addClass('current');
+	});
 
   
 
