@@ -5,7 +5,8 @@
     "bootstrap": "~4.0.0-alpha.6",
     "modernizr": "~2.8.1",
     "pixi.js": "^4.4.4",
-    "animate.css": "^3.5.2"
+    "animate.css": "^3.5.2",
+    "jqvmap": "^1.5.1"
   },
   "overrides": {
     "bootstrap": {
