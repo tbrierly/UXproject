@@ -8,7 +8,8 @@
     "animate.css": "^3.5.2",
     "jqvmap": "^1.5.1",
     "letteringjs": "^0.7.0",
-    "textillate": "^0.4.0"
+    "textillate": "^0.4.0",
+    "jquery-scrollto": "^1.4.6"
   },
   "overrides": {
     "bootstrap": {

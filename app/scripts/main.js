@@ -57,7 +57,10 @@ $(document).ready(function() {
 		$('#emblem').fadeOut();
 	
 		}, 4000);
-	
+		$('#CTcontent').ScrollTo({
+    duration: 2000,
+    durationMode: 'all'
+});
 		
 	}
 	
@@ -123,11 +126,6 @@ $(document).ready(function() {
 	});
 
 
-
-
-	
-
-	
 
 });
 
